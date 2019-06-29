@@ -1,15 +1,26 @@
 <template>
   <div class="container">
     <button type="button" class="btn btn-primary">Primary</button>
+    {{ test }}
+  
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Store from '~/store/store'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
+  store: Store,
   components: {
-    Logo
+  },
+  mounted() {
+    
+  },
+  computed: {
+    ...mapState({
+      test: 'test'
+    })
   }
 }
 </script>
