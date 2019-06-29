@@ -1,8 +1,7 @@
 <template>
   <div class="container">
     <button type="button" class="btn btn-primary">Primary</button>
-    {{ test }}
-  
+    
   </div>
 </template>
 
@@ -15,11 +14,14 @@ export default {
   components: {
   },
   mounted() {
-    
+    this.getFormatExCurrency()
   },
   computed: {
-    ...mapState({
-      test: 'test'
+
+  },
+  methods: {
+    ...mapActions({
+      getFormatExCurrency: 'getFormatExchangeCurrency'
     })
   }
 }
