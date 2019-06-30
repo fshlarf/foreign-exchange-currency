@@ -41,6 +41,7 @@ export default {
   }
   &__content {
     display: flex;
+    font-size: 25px;
     &-nominal {
       margin-left: auto;
     }

@@ -6,7 +6,7 @@
     </div>
     <div class="add-currency__input" v-if="showInput">
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Input new format currency" >
+        <input type="text" class="form-control" placeholder="Input new format currency" v-model="newCurrency">
         <div class="input-group-append">
           <button class="btn btn-primary" type="button" id="button-addon2" @click="submitAddCurrency">Submit</button>
         </div>
@@ -16,19 +16,25 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   props: {},
   data() {
     return {
-      showInput: false
+      showInput: false,
+      newCurrency: ''
     }
   },
   methods: {
+    ...mapActions({
+      addNewCurrency: 'addNewCurrency'
+    }),
     addNewFormatCurrency() {
       this.showInput = true
     },
     submitAddCurrency() {
       this.showInput = false
+      this.addNewCurrency(this.newCurrency)
     }
   }
 }
