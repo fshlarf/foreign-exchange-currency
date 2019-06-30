@@ -11,15 +11,12 @@ export default new Vuex.Store({
     arraysCurrency: []
   },
   getters: {
-    // getArraysCurrency: state => state.arraysCurrency
   },
   mutations: {
     GET_FORMAT_EXCHANGE_CURRENCY(state) {
       axios.get('https://api.exchangeratesapi.io/latest?base=USD')
       .then(res => {
         state.rates = res.data.rates
-        // console.log(Object.keys(state.rates))
-        
       })
       .catch(err => {
       })

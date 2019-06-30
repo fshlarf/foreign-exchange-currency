@@ -6,7 +6,7 @@
         {{ nameCurrency }}
       </div>
       <div class="current-currency__content-nominal">
-        {{ nominal }}
+        {{ nominal.toFixed(2) }}
       </div>
     </div>
   </div>
