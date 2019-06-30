@@ -1,19 +1,23 @@
 <template>
-  <div class="">
+  <div class="container">
     <CurrentCurrency/>
-    
+    <div class="content">
+      <AddCurrency/>
+    </div>
   </div>
 </template>
 
 <script>
 import CurrentCurrency from '~/components/CurrentCurrency'
+import AddCurrency from '~/components/AddNewCurrency'
 import Store from '~/store/store'
 import { mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
   store: Store,
   components: {
-    CurrentCurrency
+    CurrentCurrency,
+    AddCurrency
   },
   mounted() {
     this.getFormatExCurrency()
@@ -30,11 +34,5 @@ export default {
 </script>
 
 <style>
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
 </style>

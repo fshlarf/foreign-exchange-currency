@@ -34,6 +34,8 @@ export default {
 <style lang="scss" scoped>
 .current-currency {
   padding: 16px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
   &__title {
 
   }
