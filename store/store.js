@@ -25,24 +25,28 @@ export default new Vuex.Store({
       })
     },
     ADD_NEW_CURRENCY(state, newCurrency) {
+      if(!newCurrency) {
+        return
+      }
       const theNewCurrency = newCurrency.toUpperCase()
-      let theArray = {}
+      let theObject = {}
       let noCurrencyArray = []
       for (let i = 0; i <= Object.entries(state.rates).length; i++) {
         if(Object.keys(state.rates)[i] === theNewCurrency) {
-          theArray.currency = Object.keys(state.rates)[i]
-          theArray.nominalCurrency =  Object.values(state.rates)[i]
+          theObject.currency = Object.keys(state.rates)[i]
+          theObject.nominalCurrency =  Object.values(state.rates)[i]
           noCurrencyArray.push(1)
-          state.arraysCurrency = ([...state.arraysCurrency, theArray]) 
-        } else {
-        }
+          state.arraysCurrency = ([...state.arraysCurrency, theObject]) 
+        } 
       }
       noCurrencyArray.sort()
       noCurrencyArray.reverse()
       if(noCurrencyArray[0] !== 1) {
         alert('gaada')
       }
-      console.log(theArray)
+    },
+    DELETE_CURRENCY(state, id) {
+      state.arraysCurrency.splice(id, 1)
     }
   },
   actions: {
@@ -51,6 +55,9 @@ export default new Vuex.Store({
     },
     addNewCurrency({commit}, newCurrency) {
       commit('ADD_NEW_CURRENCY', newCurrency)
+    },
+    deleteCurrency({commit}, id) {
+      commit('DELETE_CURRENCY', id)
     }
   }
 })

@@ -14,7 +14,7 @@
           <div class="currency-detail">{{ currencyDetail(item) }}</div>
           <div>1 USD = {{ item.currency + ' ' + item.nominalCurrency }} </div>
         </div>
-        <div class="card-currency__delete">
+        <div class="card-currency__delete" @click="deleteCard(index)">
           (-) delete 
         </div>
       </div>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   props: {
@@ -34,10 +34,16 @@ export default {
     }),
   },
   methods: {
+    ...mapActions({
+      deleteCurrency: 'deleteCurrency'
+    }),
     currencyDetail(item) {
       if(item.currency) {
         return item.currency + ' - Indonesian Rupiah'
       }
+    },
+    deleteCard(index) {
+      this.deleteCurrency(index)
     }
   }
 }
@@ -57,6 +63,7 @@ export default {
     width: 15%;
     text-align: center;
     margin-top: 30px;
+    cursor: pointer;
   }
 }
 .header {

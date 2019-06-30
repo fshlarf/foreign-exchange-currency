@@ -6,7 +6,7 @@
     </div>
     <div class="add-currency__input" v-if="showInput">
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Input new format currency" v-model="newCurrency">
+        <input type="text" class="form-control" placeholder="Input new format currency" @keyup.enter="submitAddCurrency" v-model="newCurrency">
         <div class="input-group-append">
           <button class="btn btn-primary" type="button" id="button-addon2" @click="submitAddCurrency">Submit</button>
         </div>
@@ -31,6 +31,7 @@ export default {
     }),
     addNewFormatCurrency() {
       this.showInput = true
+      this.newCurrency = ''
     },
     submitAddCurrency() {
       this.showInput = false
