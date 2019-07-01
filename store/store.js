@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     rates: {},
     newCurrency: '',
-    arraysCurrency: []
+    arraysCurrency: [],
+    showModal: false
   },
   getters: {
   },
@@ -39,11 +40,15 @@ export default new Vuex.Store({
       noCurrencyArray.sort()
       noCurrencyArray.reverse()
       if(noCurrencyArray[0] !== 1) {
-        alert('gaada')
+        state.showModal = true
+        console.log(state.showModal);
       }
     },
     DELETE_CURRENCY(state, id) {
       state.arraysCurrency.splice(id, 1)
+    },
+    CLOSE_MODAL(state) {
+      state.showModal = false
     }
   },
   actions: {
@@ -55,6 +60,9 @@ export default new Vuex.Store({
     },
     deleteCurrency({commit}, id) {
       commit('DELETE_CURRENCY', id)
+    },
+    closeModal({commit}) {
+      commit('CLOSE_MODAL')
     }
   }
 })

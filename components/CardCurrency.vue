@@ -1,6 +1,12 @@
 <template>
   <div>
-    <div v-for="(item, index) in arraysCurrency" :key="index">
+    <div v-for="(item, index) in arraysCurrency" :key="index"
+      draggable="true" 
+      @dragstart="dragStart(index, $event)" 
+      @dragover.prevent
+      @dragend="dragEnd" 
+      @drop="dragFinish(index, $event)"
+    >
       <div class="card-currency">
         <div class="card-currency__content">
           <div class="header">
@@ -15,7 +21,8 @@
           <div>1 USD = {{ item.currency + ' ' + item.nominalCurrency.toFixed(4) }} </div>
         </div>
         <div class="card-currency__delete" @click="deleteCard(index)">
-          <img class="card-currency__delete-img" src="~/assets/icons/ic-delete.svg"/> delete 
+          <i class="icon ion-md-trash" style="padding-right: 10px;"></i>
+          <label for="">Delete</label>
         </div>
       </div>
     </div>
@@ -31,6 +38,11 @@ export default {
   props: {
   },
   mixins: [MixinCurrencyDetail],
+  data() {
+    return {
+      dragging: -1
+    }
+  },
   computed: {
     ...mapState({
       arraysCurrency: 'arraysCurrency'
@@ -42,6 +54,24 @@ export default {
     }),
     deleteCard(index) {
       this.deleteCurrency(index)
+    },
+     dragStart(which, ev) {
+      ev.dataTransfer.setData('Text', this.id);
+      ev.dataTransfer.dropEffect = 'move'
+      this.dragging = which;
+    },
+    dragEnd(ev) {
+      this.dragging = -1
+    },
+    dragFinish(to, ev) {
+      this.moveItem(this.dragging, to);
+    },
+    moveItem(from, to) {
+      if (to === -1) {
+        this.removeItemAt(from);
+      } else {
+        this.arraysCurrency.splice(to, 0, this.arraysCurrency.splice(from, 1)[0]);
+      }
     }
   },
   filters: {
@@ -59,18 +89,23 @@ export default {
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 8px;
+  margin-bottom: 16px;
+  cursor: grab;
   &__content {
     width: 85%;
   }
   &__delete {
+    display: flex;
     width: 15%;
     text-align: center;
     margin-top: 30px;
+    font-size: 20px;
     cursor: pointer;
-    &-img {
-      vertical-align: sub;
-      border-style: none;
-      width: 20px;
+    &:hover {
+      color: #007bff;
+    }
+    label {
+      cursor: pointer;
     }
   }
 }

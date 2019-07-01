@@ -7,6 +7,10 @@
       </div>
       <AddCurrency/>
     </div>
+    <Modal 
+      v-if="isShowModal"
+      @closeModal="closeTheModal"
+    />
   </div>
 </template>
 
@@ -14,6 +18,7 @@
 import CurrentCurrency from '~/components/CurrentCurrency'
 import AddCurrency from '~/components/AddNewCurrency'
 import CardCurrency from '~/components/CardCurrency'
+import Modal from '~/components/Modal'
 import Store from '~/store/store'
 import { mapState, mapGetters, mapActions } from 'vuex'
 
@@ -22,19 +27,25 @@ export default {
   components: {
     CurrentCurrency,
     AddCurrency,
-    CardCurrency
+    CardCurrency,
+    Modal
   },
   mounted() {
     this.getFormatExCurrency()
-    
   },
   computed: {
-   
+   ...mapState({
+     isShowModal: 'showModal'
+   })
   },
   methods: {
     ...mapActions({
-      getFormatExCurrency: 'getFormatExchangeCurrency'
-    })
+      getFormatExCurrency: 'getFormatExchangeCurrency',
+      closeModal: 'closeModal'
+    }),
+    closeTheModal() {
+      this.closeModal()
+    }
   }
 }
 </script>

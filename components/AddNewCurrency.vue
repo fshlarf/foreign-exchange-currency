@@ -1,7 +1,7 @@
 <template>
   <div align="center" class="add-currency">
     <div class="add-currency__btn" @click="addNewFormatCurrency" v-if="!showInput">
-      <img src="~/assets/icons/ic-add.png"/>
+      <i class="icon ion-md-add-circle-outline"></i>
       <span>Add New Currency</span>
     </div>
     <div class="add-currency__input" v-if="showInput">
@@ -50,11 +50,12 @@ export default {
   border-radius:10px;
   border: 1px solid #007bff;
   color: #007bff;
-    img {
-      width: 20px;
-      height: 20px;
-      vertical-align: middle;
-      margin-right: 5px;
+    i {
+      font-size: 30px;
+      vertical-align: sub;
+    }
+    span {
+      font-size: 20px;
     }
   }
   &:hover {
