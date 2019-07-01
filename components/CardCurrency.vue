@@ -20,9 +20,9 @@
           <div class="currency-detail">{{ setDetailCurrency(item.currency) }}</div>
           <div>1 USD = {{ item.currency + ' ' + item.nominalCurrency.toFixed(4) }} </div>
         </div>
-        <div class="card-currency__delete" @click="deleteCard(index)">
-          <i class="icon ion-md-trash" style="padding-right: 10px;"></i>
-          <label for="">Delete</label>
+        <div class="card-currency__delete">
+          <i class="icon ion-md-trash" style="padding-right: 10px;" @click="deleteCard(index)"></i>
+          <label @click="deleteCard(index)">Delete</label>
         </div>
       </div>
     </div>
@@ -120,6 +120,50 @@ export default {
 .currency-detail {
   font-style: italic;
   font-weight: 600;
+}
+@media (max-width: 350px) {
+  .card-currency {
+    margin: 0 0;
+    margin-bottom: 16px;
+    &__content {
+      width: 78%;
+    }
+    &__delete {
+      font-size: 14px;
+      cursor: pointer;
+      &:hover {
+        color: #007bff;
+      }
+      label {
+        cursor: pointer;
+      }
+    }
+  }
+  .header {
+    font-size: 18px;
+  }
+}
+@media (max-width: 800px) {
+  .card-currency {
+    margin: 0 0;
+    margin-bottom: 16px;
+    &__content {
+      width: 78%;
+    }
+    &__delete {
+      font-size: 14px;
+      cursor: pointer;
+      &:hover {
+        color: #007bff;
+      }
+      label {
+        cursor: pointer;
+      }
+    }
+  }
+  .header {
+    font-size: 18px;
+  }
 }
 </style>
 

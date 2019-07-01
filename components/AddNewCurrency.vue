@@ -48,8 +48,9 @@ export default {
   &__btn {
   padding: 16px;
   border-radius:10px;
-  border: 1px solid #007bff;
-  color: #007bff;
+  border: 1px solid white;
+  color: white;
+  background-color: #007bff;  
     i {
       font-size: 30px;
       vertical-align: sub;
@@ -57,10 +58,43 @@ export default {
     span {
       font-size: 20px;
     }
+    &:hover {
+      border: 1px solid #007bff;
+      color: #007bff;
+      background-color: white;
+    }
   }
   &:hover {
     cursor: pointer;
     opacity: 0.8;
+  }
+}
+@media (max-width: 350px) {
+  .add-currency {
+    &__btn {
+      padding: 6px;
+      i {
+        font-size: 20;
+        vertical-align: inital;
+      }
+      span {
+        font-size: 18px;
+      }
+    }
+  }
+}
+@media (max-width: 800px) {
+  .add-currency {
+    &__btn {
+      padding: 6px;
+      i {
+        font-size: 20px;
+        vertical-align: initial;
+      }
+      span {
+        font-size: 18px;
+      }
+    }
   }
 }
 </style>
