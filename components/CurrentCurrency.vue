@@ -25,7 +25,7 @@ export default {
     },
     nominal: {
       type: Number,
-      default: 10.00
+      default: 10
     }
   }
 }

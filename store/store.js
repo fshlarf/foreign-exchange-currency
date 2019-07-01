@@ -22,14 +22,14 @@ export default new Vuex.Store({
       })
     },
     ADD_NEW_CURRENCY(state, newCurrency) {
-      if(!newCurrency) {
+      if (!newCurrency) {
         return
       }
       const theNewCurrency = newCurrency.toUpperCase()
       let theObject = {}
       let noCurrencyArray = []
       for (let i = 0; i <= Object.entries(state.rates).length; i++) {
-        if(Object.keys(state.rates)[i] === theNewCurrency) {
+        if (Object.keys(state.rates)[i] === theNewCurrency) {
           theObject.currency = Object.keys(state.rates)[i]
           theObject.nominalCurrency =  Object.values(state.rates)[i]
           noCurrencyArray.push(1)
