@@ -34,7 +34,7 @@ export default {
   computed: {
     ...mapState({
       arraysCurrency: 'arraysCurrency'
-    }),
+    })
   },
   methods: {
     ...mapActions({
