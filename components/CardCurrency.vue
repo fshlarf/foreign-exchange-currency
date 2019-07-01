@@ -15,7 +15,7 @@
           <div>1 USD = {{ item.currency + ' ' + item.nominalCurrency.toFixed(4) }} </div>
         </div>
         <div class="card-currency__delete" @click="deleteCard(index)">
-          (-) delete 
+          <img class="card-currency__delete-img" src="~/assets/icons/ic-delete.svg"/> delete 
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import MixinCurrencyDetail from './MixinCurrencyDetail.vue'
+import MixinCurrencyDetail from '~/mixins/MixinCurrencyDetail.vue'
 
 export default {
   props: {
@@ -66,6 +66,11 @@ export default {
     text-align: center;
     margin-top: 30px;
     cursor: pointer;
+    &-img {
+      vertical-align: sub;
+      border-style: none;
+      width: 20px;
+    }
   }
 }
 .header {
