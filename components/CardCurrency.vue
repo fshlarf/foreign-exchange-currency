@@ -24,14 +24,15 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import MixinCurrencyDetail from '~/mixins/MixinCurrencyDetail.vue'
+import { state } from './../store/store.js'
+import MixinCurrencyDetail from './../mixins/MixinCurrencyDetail.vue'
 
 export default {
   props: {
   },
   mixins: [MixinCurrencyDetail],
   computed: {
-     ...mapState({
+    ...mapState({
       arraysCurrency: 'arraysCurrency'
     }),
   },
