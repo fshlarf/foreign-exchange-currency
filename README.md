@@ -1,5 +1,5 @@
 # foreign-exchange-currency
-> Simply you can open this project in production mode (online web) at https://foreign-currency.herokuapp.com/. You can add the currency that you want. You can delete each of card currency and you can move (drag & drop) each of card currency. Enjoy :).
+> Simply you can open this project in production mode (online web) at https://foreign-currency.herokuapp.com/. You can add the currency that you want. You can delete each of card currency and you can move (drag & drop) each of card currency :).
 
 > Faishal Arif (faishal1303@gmail.com)
 
@@ -28,7 +28,7 @@ $ npm run test
 ```
 
 ```bash
-# Build & run use Docker
+# build & run use docker
 $ cd ./deploy/web
 $ docker-compose up --build exchange-currency
 ```
