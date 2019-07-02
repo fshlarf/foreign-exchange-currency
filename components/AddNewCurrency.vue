@@ -46,7 +46,7 @@ export default {
   padding-bottom: 16px;
   margin: 10px 50px;
   &__btn {
-  padding: 16px;
+  padding: 6px;
   border-radius:10px;
   border: 1px solid white;
   color: white;
