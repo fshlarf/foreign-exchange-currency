@@ -8,7 +8,7 @@
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Input new format currency" @keyup.enter="submitAddCurrency" v-model="newCurrency">
         <div class="input-group-append">
-          <button class="btn btn-primary" type="button" @click="submitAddCurrency">Submit</button>
+          <button class="btn btn-primary btn-add" type="button" @click="submitAddCurrency">Submit</button>
         </div>
       </div>
     </div>

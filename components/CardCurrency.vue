@@ -22,7 +22,7 @@
         </div>
         <div class="card-currency__delete">
           <i class="icon ion-md-trash" style="padding-right: 10px;" @click="deleteCard(index)"></i>
-          <label @click="deleteCard(index)">Delete</label>
+          <label class="label-delete" @click="deleteCard(index)">Delete</label>
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@ export default {
     deleteCard(index) {
       this.deleteCurrency(index)
     },
-     dragStart(which, ev) {
+    dragStart(which, ev) {
       ev.dataTransfer.setData('Text', this.id);
       ev.dataTransfer.dropEffect = 'move'
       this.dragging = which;
@@ -77,7 +77,7 @@ export default {
   filters: {
     currencyFormat: function (num) {
       return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    },
+    }
   }
 }
 </script>
