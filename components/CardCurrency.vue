@@ -14,11 +14,11 @@
               {{ item.currency }}
             </div>
             <div class="header__nominal">
-              {{ (10 * item.nominalCurrency).toFixed(4) }}
+              {{ (10 * item.nominalCurrency).toFixed(4) | formatCurrency}}
             </div>
           </div>
           <div class="currency-detail">{{ setDetailCurrency(item.currency) }}</div>
-          <div>1 USD = {{ item.currency + ' ' + item.nominalCurrency.toFixed(4) }} </div>
+          <div>1 USD = {{ item.currency + ' ' + item.nominalCurrency.toFixed(4) | formatCurrency}} </div>
         </div>
         <div class="card-currency__delete">
           <i class="icon ion-md-trash" style="padding-right: 10px;" @click="deleteCard(index)"></i>
@@ -75,8 +75,15 @@ export default {
     }
   },
   filters: {
-    currencyFormat: function (num) {
-      return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    formatCurrency(num) {
+      if (num) {
+        let a = num + ''
+        let b = a.split(".")
+        let c = b[0].replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        let d = c + '.' + b[1]
+        parseInt(d)
+        return d 
+      }
     }
   }
 }

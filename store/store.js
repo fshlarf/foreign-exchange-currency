@@ -19,6 +19,8 @@ export default new Vuex.Store({
         state.rates = res.data.rates
       })
       .catch(err => {
+        console.log(err);
+        
       })
     },
     ADD_NEW_CURRENCY(state, newCurrency) {
