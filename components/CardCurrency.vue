@@ -85,7 +85,7 @@ export default {
 <style lang="scss" scoped>
 .card-currency {
   display: flex;
-  margin: 0 30px;
+  margin: 0 18px;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 8px;

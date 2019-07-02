@@ -5,6 +5,7 @@
       <div class="content-card"> 
         <CardCurrency/>
       </div>
+      <ListCurrency/>
       <AddCurrency/>
     </div>
     <Modal 
@@ -19,6 +20,7 @@ import CurrentCurrency from '~/components/CurrentCurrency'
 import AddCurrency from '~/components/AddNewCurrency'
 import CardCurrency from '~/components/CardCurrency'
 import Modal from '~/components/Modal'
+import ListCurrency from '~/components/ListCurrency'
 import Store from '~/store/store'
 import { mapState, mapGetters, mapActions } from 'vuex'
 
@@ -28,7 +30,8 @@ export default {
     CurrentCurrency,
     AddCurrency,
     CardCurrency,
-    Modal
+    Modal,
+    ListCurrency
   },
   mounted() {
     this.getFormatExCurrency()
