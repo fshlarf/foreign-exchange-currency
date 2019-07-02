@@ -1,5 +1,5 @@
 # foreign-exchange-currency
-# Simply you can open this project in production mode (online web) at https://foreign-currency.herokuapp.com/. You can add the currency that you want. You can delete each of card currency and you can move (drag & drop) each of card currency. Enjoy :).
+> Simply you can open this project in production mode (online web) at https://foreign-currency.herokuapp.com/. You can add the currency that you want. You can delete each of card currency and you can move (drag & drop) each of card currency. Enjoy :).
 
 > Faishal's Project
 
