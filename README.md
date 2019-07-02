@@ -1,12 +1,17 @@
 # foreign-exchange-currency
+# Simply you can open this project in production mode (online web) at https://foreign-currency.herokuapp.com/. You can add the currency that you want. You can delete each of card currency and you can move (drag & drop) each of card currency. Enjoy :).
 
-> Faishal&#39;s Project
+> Faishal's Project
 
 ## Build Setup
 
 ``` bash
+# clone the project
+$ git clone https://github.com/fshlarf/foreign-exchange-currency.git
+
 # install dependencies
-$ npm run install
+$ cd ./foreign-exchange-currency
+$ npm install
 
 # serve with hot reload at localhost:3000
 $ npm run dev
@@ -17,6 +22,15 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+# run unit test
+$ npm run test
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+```bash
+# Build & run use Docker
+$ cd ./deploy/web
+$ docker-compose up --build exchange-currency
+```
+
+Any problem for clone this project? Contact me at faishal1303@gmail.com.
